@@ -1,0 +1,35 @@
+[
+    {
+        "title": "card trick",
+        "id": "cardTrick",
+        "subTitle": "Prototyping",
+        "progress": "60",
+        "lessons": [
+            {
+                "title": "True Coincidence",
+                "url": "https://www.youtube.com/watch?v=8-2LzMxvjUM",
+                "id": "2"
+            },
+            {
+                "title": "Indicator",
+                "url": "https://www.youtube.com/watch?v=RRcpL7tQHvk",
+                "id": "2"
+            },
+            {
+                "title": "Spectator's dead",
+                "url": "https://www.youtube.com/watch?v=3tjaoveeTEQ",
+                "id": "3"
+            },
+            {
+                "title": "Name Any Card",
+                "url": "https://www.youtube.com/watch?v=Ixj_T3FLrUI",
+                "id": "4"
+            },
+            {
+                "title": "12 card magic",
+                "url": "https://www.youtube.com/watch?v=P9X1s_ia9Ik",
+                "id": "5"
+            }
+        ]
+    }
+]

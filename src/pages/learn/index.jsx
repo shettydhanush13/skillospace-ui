@@ -37,7 +37,7 @@ const Learn = () => {
             {player(activeLesson)}
         </div>
         <div className='lessonsContainer'>
-            {lesson.map((list, i) => <p className='projects-section-header' onClick={() => setActiveLesson(list)}>{list.title}</p>)}
+            {lesson.map((list, i) => <p className='projects-section-header lesson-heading' onClick={() => setActiveLesson(list)}>{list.title}</p>)}
         </div>
     </section>
   </section>

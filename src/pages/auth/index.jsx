@@ -5,7 +5,7 @@ import "./styles.scss"
 import RegisterForm from "../../components/loginForm"
 import Header from "../../components/header"
 
-const Register = () => {
+const Auth = () => {
 
 	const [option, setOption] = useState("sign-in")
 	
@@ -51,4 +51,4 @@ const Register = () => {
 	)
 }
 
-export default Register;
+export default Auth;

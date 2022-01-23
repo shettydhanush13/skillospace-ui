@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import './styles.scss'
 
 const RegisterForm = ({ option, handleRegister }) => {
 	return (
@@ -12,11 +12,6 @@ const RegisterForm = ({ option, handleRegister }) => {
 			<button className='btn-submit-form' type='submit'>{option.replace("-", " ")}</button>
 		</form>
 	)
-}
-
-RegisterForm.propTypes = {
-    option : PropTypes.string,
-    handleRegister : PropTypes.func
 }
 
 export default RegisterForm
