@@ -1,5 +1,5 @@
 import './styles.scss'
-import Header from '../../components/root/header'
+import Header from '../../components/header'
 import { useLocation } from 'react-router'
 import React, { useState } from 'react'
 import ReactPlayer from 'react-player'
