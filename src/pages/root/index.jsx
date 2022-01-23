@@ -128,7 +128,7 @@ const Home = () => {
                 url: 'https://www.youtube.com/watch?v=UAP1C_urdwk',
                 id: '5'
             }
-        ]}
+        ]},
     ]
 
     const toggleTheme = () => {

@@ -21,7 +21,7 @@ const Header = ({ toggleTheme }) => {
     
     return (
         <div class="app-header">
-            <div class="app-header-left">
+            <div class="app-header-left" onClick={() => navigate('/')}>
                 <span class="app-icon"></span>
                 <p class="app-name">skillOspace</p>
                 {/* <div class="search-wrapper">

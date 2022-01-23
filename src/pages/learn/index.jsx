@@ -6,7 +6,6 @@ import ReactPlayer from 'react-player'
 
 const Learn = () => {
     const location = useLocation()
-    const id = location.pathname.split('/')[2]
     const [lesson, setLesson] = useState(location?.state?.lessons)
     const [activeLesson, setActiveLesson] = useState(lesson[0])
 
@@ -31,16 +30,14 @@ const Learn = () => {
         modeSwitch.classList.toggle('active');
     }
     
-    return <section className=''>
+    return <section className='app-container'>
     <Header toggleTheme={toggleTheme}/>
-    <section className='relative flex' style={{ top: 100,  height: 'calc(100vh - 100px)'}}>
+    <section className='relative flex' style={{ top: 20 }}>
         <div className='videoContainer'>
             {player(activeLesson)}
         </div>
         <div className='lessonsContainer'>
-            <ul>
-                {lesson.map((list, i) => <li onClick={() => setActiveLesson(list)}>{list.title}</li>)}
-            </ul>
+            {lesson.map((list, i) => <p className='projects-section-header' onClick={() => setActiveLesson(list)}>{list.title}</p>)}
         </div>
     </section>
   </section>
