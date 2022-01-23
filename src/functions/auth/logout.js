@@ -9,6 +9,7 @@ export const Logout = () => {
         .then((res) => {
             localStorage.removeItem("accessToken")
             localStorage.removeItem("refreshToken")
+            localStorage.removeItem("userName")
             resolve(res.data)
         }).catch((err) => reject(err))
     });

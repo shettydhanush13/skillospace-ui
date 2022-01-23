@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router';
+import { Logout } from '../../functions'
 import './styles.scss'
 
 const Header = ({ toggleTheme }) => {
@@ -12,6 +13,11 @@ const Header = ({ toggleTheme }) => {
         const user = localStorage.getItem("userName")
         setUsername(user)
     }, [])
+
+    const signout = () => {
+        Logout().then(() => navigate("/login")).catch(err => console.log(err))
+    }
+
     
     return (
         <div class="app-header">
@@ -41,10 +47,12 @@ const Header = ({ toggleTheme }) => {
                     </svg>
                 </button> */}
                 <button class="profile-btn">
-                {/* <img src="https://assets.codepen.io/3306515/IMG_2025.jpg" /> */}
-                {username && <span>{username}</span>}
-                {!username && <span onClick={() => navigate('/login')}>Login</span>}
+                    {username && <span>{username.toUpperCase()}</span>}
+                    {!username && <span onClick={() => navigate('/login')}>Login</span>}
                 </button>
+                    {username && <button class="profile-btn">
+                    {username && <span onClick={() => signout()}>LOGOUT</span>}
+                </button>}
             </div>
             <button class="messages-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
