@@ -1,10 +1,9 @@
-import { useEffect } from 'react';
 import Header from '../../components/header'
 import SkillCard from '../../components/skillCard'
 import './styles.scss'
 
 const Home = () => {
-    const skillsList = [
+    const myskillsList = [
         {
             title: 'card trick',
             id: 'cardTrick',
@@ -37,12 +36,46 @@ const Home = () => {
                     id: '5'
                 }
             ]
+        }
+    ]
+
+    const skillsList = [
+        {
+            title: 'card trick',
+            id: 'cardTrick',
+            subTitle: 'Prototyping',
+            lessons: [
+                {
+                    title: 'True Coincidence',
+                    url: 'https://www.youtube.com/watch?v=8-2LzMxvjUM',
+                    id: '2'
+                },
+                {
+                    title: 'Indicator',
+                    url: 'https://www.youtube.com/watch?v=RRcpL7tQHvk',
+                    id: '2'
+                },
+                {
+                    title: "Spectator's dead",
+                    url: 'https://www.youtube.com/watch?v=3tjaoveeTEQ',
+                    id: '3'
+                },
+                {
+                    title: 'Name Any Card',
+                    url: 'https://www.youtube.com/watch?v=Ixj_T3FLrUI',
+                    id: '4'
+                },
+                {
+                    title: '12 card magic',
+                    url: 'https://www.youtube.com/watch?v=P9X1s_ia9Ik',
+                    id: '5'
+                }
+            ]
         },
         {
             title: "solve rubik's cube",
             id: 'rubikCube',
             subTitle: 'Prototyping',
-            progress: '60',
             lessons: [
             {
                 title: "How to Solve a 2*2 Rubik's Cube",
@@ -69,7 +102,6 @@ const Home = () => {
             title: 'soccer freestyle skills',
             id: 'soccerFreestyle',
             subTitle: 'Prototyping',
-            progress: '60',
             lessons: [
             {
                 title: '5 Essential Receiving Skills',
@@ -186,8 +218,15 @@ const Home = () => {
                 {/* {sidebar()} */}
                 <div class="projects-section">
                     <div class="projects-section-header">
-                        <p>Skills</p>
+                        <p>Continue learning</p>
                         {toggleViewMenu()}
+                    </div>
+                    <div class="project-boxes jsGridView">
+                        {myskillsList.map(skill => <SkillCard skill={skill} />)}
+                    </div>
+                    <br /><br />
+                    <div class="projects-section-header">
+                        <p>All Skills</p>
                     </div>
                     <div class="project-boxes jsGridView">
                         {skillsList.map(skill => <SkillCard skill={skill} />)}

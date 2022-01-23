@@ -23,13 +23,13 @@ const SkillCard = ({ skill }) => {
             <p class="box-content-header">{skill.title.toUpperCase()}</p>
             <p class="box-content-subheader">{skill.subTitle}</p>
         </div>
-        <div class="box-progress-wrapper">
+        {skill.progress && <div class="box-progress-wrapper">
             <p class="box-progress-header">Progress</p>
-        <div class="box-progress-bar">
-            <span class="box-progress" style={{ width: `${skill.progress}%`, backgroundColor: '#6ba644'}}></span>
-        </div>
+            <div class="box-progress-bar">
+                <span class="box-progress" style={{ width: `${skill.progress}%`, backgroundColor: '#6ba644'}}></span>
+            </div>
             <p class="box-progress-percentage">{skill.progress}%</p>
-        </div>
+        </div>}
         <div class="project-box-footer">
         <div class="participants">
             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="participant"/>
@@ -40,9 +40,7 @@ const SkillCard = ({ skill }) => {
                 </svg>
             </button>
         </div>
-        <div class="days-left">
-            Continue Learning
-        </div>
+        <div class="days-left">{`${skill.progress ? 'Continue' : 'Start'} Learning`}</div>
         </div>
     </div>
  </div>
