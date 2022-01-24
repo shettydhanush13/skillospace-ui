@@ -1,22 +1,21 @@
 .videoContainer {
-    width: 70%;
-    padding: 2%;
+    width: 100%;
     display: flex;
-    border: 1px solid #333;
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .lessonsContainer {
-    width: 30%;
-    padding: 2%;
-    border: 1px solid #333;
+    width: 100%;
     border-radius: 10px;
-    margin: 0 10px;
+    margin: 10px 0;
+    justify-content: space-around;
     .lesson-heading {
+        width: 20%;
         border: 1px solid #333;
-        padding: 3% 5%;
+        padding: 2%;
         border-radius: 8px;
-        margin: 5% 0;
+        margin: 0 1%;
         cursor: pointer;
     }
 }

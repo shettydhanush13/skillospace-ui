@@ -7,7 +7,7 @@
             {
                 "title": "True Coincidence",
                 "url": "https://www.youtube.com/watch?v=8-2LzMxvjUM",
-                "id": "2"
+                "id": "1"
             },
             {
                 "title": "Indicator",
@@ -37,17 +37,17 @@
         "subTitle": "Prototyping",
         "lessons": [
             {
-                "title": "How to Solve a 2*2 Rubik's Cube",
+                "title": "2x2 Rubik's Cube",
                 "url": "https://www.youtube.com/watch?v=GANnG5a19kg",
                 "id": "1"
             },
             {
-                "title": "How to Solve a 3x3 Rubik's Cube",
+                "title": "3x3 Rubik's Cube",
                 "url": "https://www.youtube.com/watch?v=KGvQRaK1mvs",
                 "id": "2"
             },
             {
-                "title": "How to Solve a 4*4 Rubik's Cube",
+                "title": "4x4 Rubik's Cube",
                 "url": "https://www.youtube.com/watch?v=f9ilC-ePrg4",
                 "id": "3"
             },
