@@ -26,7 +26,7 @@ const Auth = () => {
             body = {...body, username }
         } 
         option === "sign-up" ?
-        Signup(body).then(res => console.log(res)).catch(err => console.log(err))
+        Signup(body).then(() => setOption('sign-in')).catch(err => console.log(err))
         :
         Login(body).then(() => navigate("/")).catch(err => console.log(err))
     }
