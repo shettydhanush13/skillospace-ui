@@ -56,7 +56,6 @@ const Learn = () => {
     <Header toggleTheme={toggleTheme}/>
     <section className='relative flex flex-column'>
         {activeLesson && <div className='videoContainer'>
-            {/* {player(activeLesson)} */}
             <Player lesson={activeLesson}/>
         </div>}
         {lesson.length > 0 && <LessonsCarausal lessons={lesson} setLesson={(e) => setActiveLesson(e)}/>}
