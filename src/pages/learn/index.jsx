@@ -6,13 +6,28 @@ import ReactPlayer from 'react-player'
 import LessonsCarausal from '../../components/lessonsCarausal'
 import Player from '../../components/Player'
 
+import { getSkillById } from '../../functions/apis'
+
 const Learn = () => {
     const location = useLocation()
-    const [lesson, setLesson] = useState(location?.state?.lessons)
-    const [activeLesson, setActiveLesson] = useState(lesson[0])
+    const [id, setId] = useState(null)
+    const [lesson, setLesson] = useState([])
+    const [activeLesson, setActiveLesson] = useState(null)
 
     useEffect(() => {
-        setLesson(location?.state?.lessons)
+        console.log(location.pathname.split('/')[2])
+        id && getSkillById(location.pathname.split('/')[2])
+        .then(res => {
+            setLesson(res.items)
+            setActiveLesson(res.items[0])
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }, [id])
+
+    useState(() => {
+        setId(location.pathname.split('/')[2])
     }, [location])
 
     const paused = e => {
@@ -40,11 +55,11 @@ const Learn = () => {
     return <section className='app-container'>
     <Header toggleTheme={toggleTheme}/>
     <section className='relative flex flex-column'>
-        <div className='videoContainer'>
+        {activeLesson && <div className='videoContainer'>
             {/* {player(activeLesson)} */}
             <Player lesson={activeLesson}/>
-        </div>
-        <LessonsCarausal lessons={lesson} setLesson={(e) => setActiveLesson(e)}/>
+        </div>}
+        {lesson.length > 0 && <LessonsCarausal lessons={lesson} setLesson={(e) => setActiveLesson(e)}/>}
     </section>
   </section>
 }

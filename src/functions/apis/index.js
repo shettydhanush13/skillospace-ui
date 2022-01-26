@@ -6,6 +6,7 @@ import { getAllSkills } from './skills/getAllSkills'
 import { getSkillById } from './skills/getSkillById'
 import { createProgress } from "./progress/createProgress"
 import { updateProgress } from "./progress/updateProgress"
+import { getMyProgress } from './progress/getMyProgress'
 
 export { 
     Login,
@@ -16,4 +17,5 @@ export {
     getSkillById,
     createProgress,
     updateProgress,
+    getMyProgress
 }

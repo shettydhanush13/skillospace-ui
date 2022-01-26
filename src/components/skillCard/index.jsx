@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router';
 import './styles.scss';
 
-const SkillCard = ({ skill }) => {
+const SkillCard = ({ skill, type }) => {
 
     const navigate = useNavigate();
 
-    return <div class="project-box-wrapper" onClick={() => navigate(`learn/${skill.id}`, { state: skill })}>
+    return <div class="project-box-wrapper" onClick={() => navigate(`learn/${skill.skill_id}`, { state: skill })}>
     <div class="project-box" style={{backgroundColor: '#bddba8'}}>
         <div class="project-box-header">
         {/* <span>{skill.date}</span> */}
@@ -21,9 +21,9 @@ const SkillCard = ({ skill }) => {
         </div>
         <div class="project-box-content-header">
             <p class="box-content-header">{skill.title.toUpperCase()}</p>
-            <p class="box-content-subheader">{skill.subTitle}</p>
+            <p class="box-content-subheader">{skill.creator}</p>
         </div>
-        {skill.progress && <div class="box-progress-wrapper">
+        {type === 'my' && <div class="box-progress-wrapper">
             <p class="box-progress-header">Progress</p>
             <div class="box-progress-bar">
                 <span class="box-progress" style={{ width: `${skill.progress}%`, backgroundColor: '#6ba644'}}></span>
@@ -40,7 +40,7 @@ const SkillCard = ({ skill }) => {
                 </svg>
             </button>
         </div>
-        <div class="days-left">{`${skill.progress ? 'Continue' : 'Start'} Learning`}</div>
+        <div class="days-left">{`${type === 'my' ? 'Continue' : 'Start'} Learning`}</div>
         </div>
     </div>
  </div>

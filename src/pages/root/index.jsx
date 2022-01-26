@@ -1,12 +1,37 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../../components/header'
 import SkillCard from '../../components/skillCard'
+import { getAllSkills, getMyProgress } from '../../functions/apis'
+
 import './styles.scss'
 
-const myskillsList = require('../../data/mySkills.json')
-const skillsList = require('../../data/allSkills.json')
+// const myskillsList = require('../../data/mySkills.json')
+// const skillsList = require('../../data/allSkills.json')
 
 const Home = () => {
+
+    useEffect(() => {
+        getAllSkills()
+        .then(res => {
+            console.log(res.items)
+            setSkillsList(res.items)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+        getMyProgress()
+        .then(res => {
+            console.log(res.items)
+            setMySkillsList(res.items)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }, [])
+
+    const [skillsList, setSkillsList] = useState([])
+    const [myskillsList, setMySkillsList] = useState([])
 
     const [login, ] = useState(localStorage.getItem('userName'))
 
@@ -69,7 +94,7 @@ const Home = () => {
                             {toggleViewMenu()}
                         </div>
                         <div class="project-boxes jsGridView">
-                            {myskillsList.map(skill => <SkillCard skill={skill} />)}
+                            {myskillsList.map(skill => <SkillCard type='my' skill={skill} />)}
                         </div>
                         <br /><br />
                     </>}
@@ -77,7 +102,7 @@ const Home = () => {
                         <p>All Skills</p>
                     </div>
                     <div class="project-boxes jsGridView">
-                        {skillsList.map(skill => <SkillCard skill={skill} />)}
+                        {skillsList.map(skill => <SkillCard type='all' skill={skill} />)}
                     </div>
                 </div>
             </div>
