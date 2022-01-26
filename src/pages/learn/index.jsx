@@ -4,6 +4,7 @@ import { useLocation } from 'react-router'
 import React, { useEffect, useState } from 'react'
 import LessonsCarausal from '../../components/lessonsCarausal'
 import Player from '../../components/Player'
+import Loader from '../../components/loader'
 
 import { getSkillById } from '../../functions/apis'
 
@@ -38,9 +39,12 @@ const Learn = () => {
     return <section className='app-container'>
     <Header toggleTheme={toggleTheme}/>
     <section className='relative flex flex-column'>
-        {activeLesson && <div className='videoContainer'>
+        {activeLesson ? <div className='videoContainer'>
             <Player lesson={activeLesson}/>
-        </div>}
+        </div> : 
+        <section className="loader-wrapper">
+            <Loader/>
+        </section>}
         {lesson.length > 0 && <LessonsCarausal lessons={lesson} setLesson={(e) => setActiveLesson(e)}/>}
     </section>
   </section>

@@ -169,7 +169,6 @@ const Player = ({ lesson }) => {
 
             <div className='media-controls'>
                 <section>
-                  {/* <button onClick={handleStop}>Stop</button> */}
                   <button onClick={handlePlayPause}>{playing ? 'Pause' : 'Play'}</button>
                   {/* <button onClick={handleClickFullscreen}>Fullscreen</button> */}
                   {light &&

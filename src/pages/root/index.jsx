@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Header from '../../components/header'
 import SkillCard from '../../components/skillCard'
+import Loader from '../../components/loader'
 import { getAllSkills, getMyProgress } from '../../functions/apis'
 import './styles.scss'
 
@@ -19,13 +20,13 @@ const Home = () => {
         }).catch(err => console.log(err))
     }, [])
 
-    const [skillsList, setSkillsList] = useState([])
-    const [myskillsList, setMySkillsList] = useState([])
+    const [skillsList, setSkillsList] = useState(null)
+    const [myskillsList, setMySkillsList] = useState(null)
 
     const [login, ] = useState(localStorage.getItem('userName'))
 
     const toggleTheme = () => {
-        var modeSwitch = document.querySelector('.mode-switch');
+        const modeSwitch = document.querySelector('.mode-switch');
         document.documentElement.classList.toggle('dark');
         modeSwitch.classList.toggle('active');
     }
@@ -77,7 +78,7 @@ const Home = () => {
             <Header toggleTheme={toggleTheme}/>
             <div class="app-content">
                 <div class="projects-section">
-                    {login && myskillsList.length > 0 && <>
+                    {login && myskillsList && myskillsList.length > 0 ? <>
                         <div class="projects-section-header">
                             <p>Continue learning</p>
                             {toggleViewMenu()}
@@ -86,15 +87,15 @@ const Home = () => {
                             {myskillsList.map(skill => <SkillCard type='my' skill={skill} />)}
                         </div>
                         <br /><br />
-                    </>}
-                    {skillsList.length > 0 && <>
+                    </> : myskillsList ? <></> : <Loader/>}
+                    {skillsList ? <>
                         <div class="projects-section-header">
                             <p>All Skills</p>
                         </div>
                         <div class="project-boxes jsGridView">
                             {skillsList.map(skill => <SkillCard type='all' skill={skill} />)}
                         </div>
-                    </>}
+                    </> : <Loader/>}
                 </div>
             </div>
         </div>
