@@ -1,92 +1,106 @@
 [
     {
         "title": "card trick",
-        "id": "cardTrick",
-        "subTitle": "Prototyping",
+        "skill_id": "card_trick",
+        "creator": "MLT Magic Tricks",
         "lessons": [
             {
                 "title": "True Coincidence",
                 "url": "https://www.youtube.com/watch?v=8-2LzMxvjUM",
-                "id": "1"
+                "thumb": "",
+                "skill_id": "card_trick" 
             },
             {
                 "title": "Indicator",
                 "url": "https://www.youtube.com/watch?v=RRcpL7tQHvk",
-                "id": "2"
+                "thumb": "",
+                "skill_id": "card_trick" 
             },
             {
                 "title": "Spectator's dead",
                 "url": "https://www.youtube.com/watch?v=3tjaoveeTEQ",
-                "id": "3"
+                "thumb": "",
+                "skill_id": "card_trick" 
             },
             {
                 "title": "Name Any Card",
                 "url": "https://www.youtube.com/watch?v=Ixj_T3FLrUI",
-                "id": "4"
+                "thumb": "",
+                "skill_id": "card_trick" 
             },
             {
                 "title": "12 card magic",
                 "url": "https://www.youtube.com/watch?v=P9X1s_ia9Ik",
-                "id": "5"
+                "thumb": "",
+                "skill_id": "card_trick" 
             }
         ]
     },
     {
         "title": "solve rubik's cube",
-        "id": "rubikCube",
-        "subTitle": "Prototyping",
+        "skill_id": "rubik_cube",
+        "creator": "J Perm",
         "lessons": [
             {
                 "title": "2x2 Rubik's Cube",
                 "url": "https://www.youtube.com/watch?v=GANnG5a19kg",
-                "id": "1"
+                "thumb": "",
+                "skill_id": "rubik_cube" 
             },
             {
                 "title": "3x3 Rubik's Cube",
                 "url": "https://www.youtube.com/watch?v=KGvQRaK1mvs",
-                "id": "2"
+                "thumb": "",
+                "skill_id": "rubik_cube" 
             },
             {
                 "title": "4x4 Rubik's Cube",
                 "url": "https://www.youtube.com/watch?v=f9ilC-ePrg4",
-                "id": "3"
+                "thumb": "",
+                "skill_id": "rubik_cube" 
             },
             {
                 "title": "CFOP Speedcubing Method",
                 "url": "https://www.youtube.com/watch?v=MS5jByTX_pk",
-                "id": "4"
+                "thumb": "",
+                "skill_id": "rubik_cube" 
             }
         ]
     },
     {
         "title": "soccer freestyle skills",
-        "id": "soccerFreestyle",
-        "subTitle": "Prototyping",
+        "skill_id": "soccer_freestyle",
+        "creator": "Street Soccer International",
         "lessons": [
             {
                 "title": "5 Essential Receiving Skills",
                 "url": "https://www.youtube.com/watch?v=Hgtq1gepBdE",
-                "id": "1"
+                "thumb": "",
+                "skill_id": "soccer_freestyle" 
             },
             {
                 "title": "5 Simple Nutmeg Skills",
                 "url": "https://www.youtube.com/watch?v=yBYx2r3dDxA",
-                "id": "2"
+                "thumb": "",
+                "skill_id": "soccer_freestyle" 
             },
             {
                 "title": "6 Ways To Control The Ball ",
                 "url": "https://www.youtube.com/watch?v=YWNdqAOx59g",
-                "id": "3"
+                "thumb": "",
+                "skill_id": "soccer_freestyle" 
             },
             {
                 "title": "Rabona and Rabona Fake",
                 "url": "https://www.youtube.com/watch?v=Zt-imRuYpfg",
-                "id": "4"
+                "thumb": "",
+                "skill_id": "soccer_freestyle" 
             },
             {
                 "title": "Scissor Move",
                 "url": "https://www.youtube.com/watch?v=UAP1C_urdwk",
-                "id": "5"
+                "thumb": "",
+                "skill_id": "soccer_freestyle" 
             }
         ]
     }
