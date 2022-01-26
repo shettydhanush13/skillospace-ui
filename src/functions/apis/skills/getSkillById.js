@@ -1,9 +1,9 @@
 import axios from "axios";
-import config from "../../config"
+import config from "../../../config"
 
-export const DeleteListing = (id, token) => {
+export const getSkillById = (token, skill_id) => {
     return new Promise((resolve, reject) => {
-        axios.delete(`${config.baseUrl}/listing/${id}`, {
+        axios.get(`${config.baseUrl}/skill/${skill_id}`, {
             headers: {
               'Authorization': `Bearer ${token}`
             }

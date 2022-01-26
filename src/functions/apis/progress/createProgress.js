@@ -1,9 +1,9 @@
 import axios from "axios";
-import config from "../../config"
+import config from "../../../config"
 
-export const CreateListing = (body, token) => {
+export const createProgress = (body, token) => {
     return new Promise((resolve, reject) => {
-        axios.post(`${config.baseUrl}/listing`, body, {
+        axios.post(`${config.baseUrl}/progress`, body, {
             headers: {
               'Authorization': `Bearer ${token}`
             }

@@ -102,11 +102,13 @@ const Player = ({ lesson }) => {
   }
 
   const handleProgress = state => {
-    console.log('onProgress', state)
+    const { loaded, loadedSeconds, played, playedSeconds } = state;
     // We only want to update time slider if we are not currently seeking
-    if (!seeking) {
+    // if (!seeking) {
+      setLoaded(loaded)
+      setPlayed(played)
       // setState(state)
-    }
+    // }
   }
 
   const handleEnded = () => {
@@ -119,8 +121,15 @@ const Player = ({ lesson }) => {
     setDuration(duration)
   }
 
+  const saveProgressForUser = () => {
+    
+  }
+
   useEffect(() => {
     load()
+    return () => {
+      saveProgressForUser()
+    }
   }, [lesson])
 
     return (

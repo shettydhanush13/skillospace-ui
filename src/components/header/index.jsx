@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router';
-import { Logout } from '../../functions'
+import { Logout } from '../../functions/apis'
 import './styles.scss'
 
 const Header = ({ toggleTheme }) => {

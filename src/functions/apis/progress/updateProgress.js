@@ -1,9 +1,9 @@
 import axios from "axios";
-import config from "../../config"
+import config from "../../../config"
 
-export const EditListing = (body, id, token) => {
+export const updateProgress = (body, progressId, token) => {
     return new Promise((resolve, reject) => {
-        axios.put(`${config.baseUrl}/listing/${id}`, body, {
+        axios.put(`${config.baseUrl}/progress/${progressId}`, body, {
             headers: {
               'Authorization': `Bearer ${token}`
             }
