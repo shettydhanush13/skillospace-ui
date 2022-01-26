@@ -17,7 +17,7 @@
                 "skill_id": "card_trick" 
             },
             {
-                "title": "Spectator's dead",
+                "title": "Spectators dead",
                 "url": "https://www.youtube.com/watch?v=3tjaoveeTEQ",
                 "thumb": "",
                 "skill_id": "card_trick" 
@@ -42,19 +42,19 @@
         "creator": "J Perm",
         "lessons": [
             {
-                "title": "2x2 Rubik's Cube",
+                "title": "2x2 Cube",
                 "url": "https://www.youtube.com/watch?v=GANnG5a19kg",
                 "thumb": "",
                 "skill_id": "rubik_cube" 
             },
             {
-                "title": "3x3 Rubik's Cube",
+                "title": "3x3 Cube",
                 "url": "https://www.youtube.com/watch?v=KGvQRaK1mvs",
                 "thumb": "",
                 "skill_id": "rubik_cube" 
             },
             {
-                "title": "4x4 Rubik's Cube",
+                "title": "4x4 Cube",
                 "url": "https://www.youtube.com/watch?v=f9ilC-ePrg4",
                 "thumb": "",
                 "skill_id": "rubik_cube" 

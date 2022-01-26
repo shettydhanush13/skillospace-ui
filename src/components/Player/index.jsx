@@ -135,12 +135,14 @@ const Player = ({ lesson }) => {
     return (
       <div className='app'>
         <section className='section'>
-          <div className='player-wrapper'>
+          {!playing && <div className='dummyLayer' onClick={(e) => e.stopPropagation()}>
+              <img src="https://www.pngall.com/wp-content/uploads/5/Play-Button-PNG-Picture.png" alt="" />
+            </div>}
             <ReactPlayer
               ref={playerRef}
               className='react-player'
-              width='100%'
-              height='100%'
+              width='60vw'
+              height='60vh'
               url={url}
               pip={pip}
               playing={playing}
@@ -164,56 +166,47 @@ const Player = ({ lesson }) => {
               onProgress={handleProgress}
               onDuration={handleDuration}
             />
-          </div>
 
-          <table>
-            <tbody>
-              <tr>
-                <th>Controls</th>
-                <td>
-                  <button onClick={handleStop}>Stop</button>
+            <div className='media-controls'>
+                <section>
+                  {/* <button onClick={handleStop}>Stop</button> */}
                   <button onClick={handlePlayPause}>{playing ? 'Pause' : 'Play'}</button>
                   {/* <button onClick={handleClickFullscreen}>Fullscreen</button> */}
                   {light &&
                     <button onClick={() => playerRef.current.showPreview()}>Show preview</button>}
                   {ReactPlayer.canEnablePIP(url) &&
                     <button onClick={handleTogglePIP}>{pip ? 'Disable PiP' : 'Enable PiP'}</button>}
-                </td>
-              </tr>
-              <tr>
-                <th>Speed</th>
-                <td>
-                  <button onClick={handleSetPlaybackRate} value={1}>1x</button>
-                  <button onClick={handleSetPlaybackRate} value={1.5}>1.5x</button>
-                  <button onClick={handleSetPlaybackRate} value={2}>2x</button>
-                </td>
-              </tr>
-              <tr>
-                <th>Seek</th>
-                <td>
-                  <input
-                    type='range' min={0} max={0.999999} step='any'
-                    value={played}
-                    onMouseDown={handleSeekMouseDown}
-                    onChange={handleSeekChange}
-                    onMouseUp={handleSeekMouseUp}
-                  />
-                  <br/>
-                  <Duration seconds={duration} />
-                  <br/>
-                  <Duration seconds={duration * played} />
-                  <br/>
-                  <Duration seconds={duration * (1-played)} />
-                </td>
-              </tr>
-              <tr>
-                <th>Volume</th>
-                <td>
+                </section>
+                <section className="duration-section">
+                  <section className="time-section">
+                    <Duration className='app-name' seconds={duration * (played)} />
+                    &nbsp;<span className='app-name'>/</span>&nbsp;
+                    <Duration className='app-name' seconds={duration} />
+                  </section>
+                  <section className='progressSection'>
+                    <input
+                      type='range' min={0} max={0.999999} step='any'
+                      value={played}
+                      onMouseDown={handleSeekMouseDown}
+                      onChange={handleSeekChange}
+                      onMouseUp={handleSeekMouseUp}
+                    />
+                  </section>
+                  <section className="time-section">
+                    <Duration className='app-name' seconds={duration * (1-played)} />
+                  </section>
+                </section>
+                <section className="volumne-section">
                   <input type='range' min={0} max={1} step='any' value={volume} onChange={handleVolumeChange} />
-                  {volume.toFixed(3)}
-                </td>
-              </tr>
-              <tr>
+                  <p className='app-name'>{parseInt(volume*100)}%</p>
+                </section>
+                <section>
+                  <button className={playbackRate === 1 ? `activePlayback` : ''} onClick={handleSetPlaybackRate} value={1}>1x</button>
+                  <button className={playbackRate === 1.5 ? `activePlayback` : ''} onClick={handleSetPlaybackRate} value={1.5}>1.5x</button>
+                  <button className={playbackRate === 2 ? `activePlayback` : ''} onClick={handleSetPlaybackRate} value={2}>2x</button>
+                </section>
+              
+              {/* <tr>
                 <th>
                   <label htmlFor='controls'>Controls</label>
                 </th>
@@ -221,41 +214,40 @@ const Player = ({ lesson }) => {
                   <input id='controls' type='checkbox' checked={controls} onChange={handleToggleControls} />
                   <em>&nbsp; Requires player reload</em>
                 </td>
-              </tr>
-              <tr>
+              </tr> */}
+              {/* <tr>
                 <th>
                   <label htmlFor='muted'>Muted</label>
                 </th>
                 <td>
                   <input id='muted' type='checkbox' checked={muted} onChange={handleToggleMuted} />
                 </td>
-              </tr>
-              <tr>
+              </tr> */}
+              {/* <tr>
                 <th>
                   <label htmlFor='loop'>Loop</label>
                 </th>
                 <td>
                   <input id='loop' type='checkbox' checked={loop} onChange={handleToggleLoop} />
                 </td>
-              </tr>
-              <tr>
+              </tr> */}
+              {/* <tr>
                 <th>
                   <label htmlFor='light'>Light mode</label>
                 </th>
                 <td>
                   <input id='light' type='checkbox' checked={light} onChange={handleToggleLight} />
                 </td>
-              </tr>
-              <tr>
+              </tr> */}
+              {/* <tr>
                 <th>Played</th>
                 <td><progress max={1} value={played} />{played.toFixed(3)}</td>
-              </tr>
-              <tr>
+              </tr> */}
+              {/* <tr>
                 <th>Loaded</th>
                 <td><progress max={1} value={loaded} />{loaded.toFixed(3)}</td>
-              </tr>
-            </tbody>
-          </table>
+              </tr> */}
+            </div>
         </section>
       </div>
     )
