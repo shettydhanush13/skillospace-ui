@@ -2,32 +2,21 @@ import { useEffect, useState } from 'react'
 import Header from '../../components/header'
 import SkillCard from '../../components/skillCard'
 import { getAllSkills, getMyProgress } from '../../functions/apis'
-
 import './styles.scss'
-
-// const myskillsList = require('../../data/mySkills.json')
-// const skillsList = require('../../data/allSkills.json')
 
 const Home = () => {
 
     useEffect(() => {
-        getAllSkills()
-        .then(res => {
-            console.log(res.items)
-            setSkillsList(res.items)
-        })
-        .catch(err => {
-            console.log(err)
-        })
-
         getMyProgress()
-        .then(res => {
-            console.log(res.items)
-            setMySkillsList(res.items)
-        })
-        .catch(err => {
-            console.log(err)
-        })
+        .then(mySkills => {
+            setMySkillsList(mySkills.items)
+            getAllSkills()
+            .then(skills => {
+                const mySkillsId = mySkills.items.map(el => el.skill_id)
+                const remainingSkills = skills.items.filter(el => !mySkillsId.includes(el.skill_id))
+                setSkillsList(remainingSkills)
+            }).catch(err => console.log(err))
+        }).catch(err => console.log(err))
     }, [])
 
     const [skillsList, setSkillsList] = useState([])
@@ -88,7 +77,7 @@ const Home = () => {
             <Header toggleTheme={toggleTheme}/>
             <div class="app-content">
                 <div class="projects-section">
-                    {login && <>
+                    {login && myskillsList.length > 0 && <>
                         <div class="projects-section-header">
                             <p>Continue learning</p>
                             {toggleViewMenu()}
@@ -98,12 +87,14 @@ const Home = () => {
                         </div>
                         <br /><br />
                     </>}
-                    <div class="projects-section-header">
-                        <p>All Skills</p>
-                    </div>
-                    <div class="project-boxes jsGridView">
-                        {skillsList.map(skill => <SkillCard type='all' skill={skill} />)}
-                    </div>
+                    {skillsList.length > 0 && <>
+                        <div class="projects-section-header">
+                            <p>All Skills</p>
+                        </div>
+                        <div class="project-boxes jsGridView">
+                            {skillsList.map(skill => <SkillCard type='all' skill={skill} />)}
+                        </div>
+                    </>}
                 </div>
             </div>
         </div>
