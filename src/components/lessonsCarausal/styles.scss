@@ -1,12 +1,10 @@
 .lessonCard {
-    // box-shadow: 0 2px 6px 0 rgba(136,148,171,.2),0 24px 20px -24px rgba(71,82,107,.1);
     border: none;
     background-color: rgb(189, 219, 168);
 }
 
-.activeLesson{
+.completed-lesson{
     box-shadow: 0 2px 6px 0 rgba(136,148,171,.2),0 24px 20px -24px rgba(71,82,107,.1);
-    border: 1px solid #fafafa;
-    // transform: scale(1.1);
+    border: 1px solid #000;
     z-index: 5;
 }
