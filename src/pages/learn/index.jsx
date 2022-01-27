@@ -13,17 +13,18 @@ const Learn = () => {
     const [id, setId] = useState(null)
     const [lesson, setLesson] = useState([])
     const [activeLesson, setActiveLesson] = useState(null)
+    const [skillData, setSkillData] = useState(null)
+    const [lessonProgress, setLessonProgress] = useState([])
 
     useEffect(() => {
-        console.log(location.pathname.split('/')[2])
-        id && getSkillById(location.pathname.split('/')[2])
+        id && getSkillById(id)
         .then(res => {
-            setLesson(res.items)
-            setActiveLesson(res.items[0])
-        })
-        .catch(err => {
-            console.log(err)
-        })
+            const item = res.items[0];
+            setSkillData(item)
+            setLesson(item.lessons)
+            setLessonProgress(JSON.parse(item.progress.lessons))
+            setActiveLesson(item.lessons[0])
+        }).catch(err => console.log(err))
     }, [id])
 
     useState(() => {
@@ -39,13 +40,15 @@ const Learn = () => {
     return <section className='app-container'>
     <Header toggleTheme={toggleTheme}/>
     <section className='relative flex flex-column'>
+        <h1 className='app-name' style={{ textTransform: 'uppercase' }}><b>{skillData?.title}</b> - {skillData?.creator}</h1>
+        <br />
         {activeLesson ? <div className='videoContainer'>
             <Player lesson={activeLesson}/>
         </div> : 
         <section className="loader-wrapper">
             <Loader/>
         </section>}
-        {lesson.length > 0 && <LessonsCarausal lessons={lesson} setLesson={(e) => setActiveLesson(e)}/>}
+        {lesson.length > 0 && <LessonsCarausal lessonProgress={lessonProgress} lessons={lesson} setLesson={(e) => setActiveLesson(e)}/>}
     </section>
   </section>
 }
