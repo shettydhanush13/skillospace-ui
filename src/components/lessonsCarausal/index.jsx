@@ -1,16 +1,28 @@
-import React from 'react';
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import React, { useEffect } from 'react';
 import './styles.scss'
 
-const LessonsCarausal = ({ lessons, setLesson, lessonProgress }) => {
-return <OwlCarousel className='owl-theme' height={50} margin={10} items={4}>
-    {lessons.map(lesson =>  <div onClick={() => setLesson(lesson)}
-      className={`item flex flex-column flex-align-center project-box lessonCard ${lessonProgress.includes(lesson.id) ? 'completed-lesson' : ''}`}>
-        <h4 className='text-center'>{lesson.title}</h4>
-    </div>)}
-</OwlCarousel>
+const LessonsCarausal = ({ active, lessons, setLesson, lessonProgress }) => {
+  const activeLessonChange = (lesson) => {
+    const cards = document.getElementsByClassName('lessonCard')
+    for(let i=0; i<cards.length; i++) {
+      cards[i].classList.remove('current-lesson');
+    }
+    document.getElementById(lesson.id).classList.add('current-lesson');
+    setLesson(lesson);
+  }
+
+  useEffect(() => {
+    activeLessonChange(active)
+  }, [])
+
+  return <div className='flex flex-wrap'>
+      {lessons.map(lesson =>  <div onClick={() => activeLessonChange(lesson)}
+        id={lesson.id}
+        className={`flex flex-column flex-align-center project-box lessonCard`}>
+          {lessonProgress.includes(lesson.id) && <img className='completed-icon' src="https://static.thenounproject.com/png/426713-200.png" alt="" />}
+          <span className='text-center'>{lesson.title}</span>
+      </div>)}
+  </div>
 }
 
 export default LessonsCarausal
