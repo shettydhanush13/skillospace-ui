@@ -4,7 +4,7 @@ import Duration from './Duration'
 
 import './styles.scss'
 
-const Player = ({ lesson }) => {
+const Player = ({ lesson, lessonEnded }) => {
 
   const playerRef = useRef();
 
@@ -103,17 +103,13 @@ const Player = ({ lesson }) => {
 
   const handleProgress = state => {
     const { loaded, loadedSeconds, played, playedSeconds } = state;
-    // We only want to update time slider if we are not currently seeking
-    // if (!seeking) {
       setLoaded(loaded)
       setPlayed(played)
-      // setState(state)
-    // }
   }
 
   const handleEnded = () => {
-    console.log('onEnded')
     setPlaying(loop)
+    lessonEnded()
   }
 
   const handleDuration = (duration) => {
@@ -122,7 +118,7 @@ const Player = ({ lesson }) => {
   }
 
   const saveProgressForUser = () => {
-    
+    //save minutes based progress
   }
 
   useEffect(() => {
