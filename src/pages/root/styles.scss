@@ -26,6 +26,8 @@
   &-content {
     display: flex;
     height: 100%;
+    top: 80px;
+    position: relative;
     overflow: hidden;
     padding: 16px 0 24px 0;
   }
@@ -35,7 +37,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 36px 24px;
+    height: 100%;
     position: relative;
     
     &-left, &-right {
