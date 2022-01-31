@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import './styles.scss'
 
 const LessonsCarausal = ({ active, lessons, setLesson, lessonProgress }) => {
@@ -19,7 +21,7 @@ const LessonsCarausal = ({ active, lessons, setLesson, lessonProgress }) => {
       {lessons.map(lesson =>  <div onClick={() => activeLessonChange(lesson)}
         id={lesson.id}
         className={`flex flex-column flex-align-center project-box lessonCard`}>
-          {lessonProgress.includes(lesson.id) && <img className='completed-icon' src="https://static.thenounproject.com/png/426713-200.png" alt="" />}
+          {lessonProgress.includes(lesson.id) && <FontAwesomeIcon className='completed-icon' icon={faCheckCircle}/>}
           <span className='text-center'>{lesson.title}</span>
       </div>)}
   </div>

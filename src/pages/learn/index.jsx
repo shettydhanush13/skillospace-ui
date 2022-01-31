@@ -47,7 +47,7 @@ const Learn = () => {
     }
     
     return <PageWrapper className='relative flex flex-column'>
-        <h1 className='app-name' style={{ textTransform: 'uppercase' }}><b>{skillData?.title}</b> - {skillData?.creator}</h1>
+        {skillData && <h1 className='app-name' style={{ textTransform: 'uppercase' }}><b>{skillData?.title}</b> - {skillData?.creator}</h1>}
         <br />
         {activeLesson ? <div className='videoContainer'><Player lesson={activeLesson} lessonEnded={lessonEnded}/></div>
         : 

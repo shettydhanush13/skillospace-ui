@@ -67,7 +67,8 @@
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  margin: 0;
+  font-family: "Montserrat";
   display: flex;
   justify-content: center;
   background-color: var(--app-container);
@@ -91,18 +92,6 @@ button, a {
 
 .font-bold{
   font-family: "Montserrat-Bold";
-}
-
-body {
-  margin: 0;
-  font-family: "Montserrat";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 .hideInDeskTop{
