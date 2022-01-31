@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import ReactPlayer from 'react-player'
 import Duration from './Duration'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPause, faPlay, faPlayCircle, faVolumeMute, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 
 import './styles.scss'
 
@@ -9,46 +11,21 @@ const Player = ({ lesson, lessonEnded }) => {
   const playerRef = useRef();
 
   const [url, setUrl] = useState(null)
-  const [pip, setPip] = useState(false)
   const [playing, setPlaying] = useState(true)
-  const [controls, setControls] = useState(false)
-  const [light, setLight] = useState(false)
+  const [light] = useState(false)
   const [volume, setVolume] = useState(0.8)
   const [muted, setMuted] = useState(false)
   const [played, setPlayed] = useState(0)
-  const [loaded, setLoaded] = useState(0)
   const [duration, setDuration] = useState(0)
   const [playbackRate, setPlaybackRate] = useState(1.0)
-  const [loop, setLoop] = useState(false)
-  const [seeking, setSeeking] = useState(true);
 
   const load = () => {
     setUrl(lesson.url)
     setPlayed(0)
-    setLoaded(0)
-    setPip(false)
   }
 
   const handlePlayPause = () => {
     setPlaying(el => !el)
-  }
-
-  const handleStop = () => {
-    setUrl(null)
-    setPlaying(false)
-  }
-
-  const handleToggleControls = () => {
-    setControls(el => !el)
-    setUrl(url)
-  }
-
-  const handleToggleLight = () => {
-    setLight(el => !el)
-  }
-
-  const handleToggleLoop = () => {
-    setLoop(el => !el)
   }
 
   const handleVolumeChange = e => {
@@ -67,48 +44,28 @@ const Player = ({ lesson, lessonEnded }) => {
     setPlaybackRate(parseFloat(speed))
   }
 
-  const handleTogglePIP = () => {
-    setPip(el => !el)
-  }
-
   const handlePlay = () => {
     setPlaying(true)
-  }
-
-  const handleEnablePIP = () => {
-    setPip(true)
-  }
-
-  const handleDisablePIP = () => {
-    setPip(false)
   }
 
   const handlePause = () => {
     setPlaying(false)
   }
 
-  const handleSeekMouseDown = e => {
-    setSeeking(true)
-  }
-
   const handleSeekChange = e => {
     setPlayed(parseFloat(e.target.value))
   }
 
-
   const handleSeekMouseUp = e => {
-    setSeeking(false)
     playerRef.current.seekTo(parseFloat(e.target.value))
   }
 
   const handleProgress = state => {
-    const { loaded, loadedSeconds, played, playedSeconds } = state;
-      setLoaded(loaded)
+    const { played } = state;
       setPlayed(played)
   }
 
   const handleEnded = () => {
-    setPlaying(loop)
     lessonEnded()
   }
 
@@ -131,8 +88,8 @@ const Player = ({ lesson, lessonEnded }) => {
     return (
       <div className='app'>
         <section className='section'>
-          {!playing && <div className='dummyLayer' onClick={(e) => e.stopPropagation()}>
-              <img src="https://www.pngall.com/wp-content/uploads/5/Play-Button-PNG-Picture.png" alt="" />
+          {<div className={`dummyLayer ${playing ? '' : 'active'}`} onClick={(e) => e.stopPropagation()}>
+            {!playing &&  <FontAwesomeIcon icon={faPlayCircle}/>}
             </div>}
             <ReactPlayer
               ref={playerRef}
@@ -140,19 +97,14 @@ const Player = ({ lesson, lessonEnded }) => {
               width='60vw'
               height='60vh'
               url={url}
-              pip={pip}
               playing={playing}
-              controls={controls}
               light={light}
-              loop={loop}
               playbackRate={playbackRate}
               volume={volume}
               muted={muted}
               onReady={() => console.log('onReady')}
               onStart={() => console.log('onStart')}
               onPlay={handlePlay}
-              onEnablePIP={handleEnablePIP}
-              onDisablePIP={handleDisablePIP}
               onPause={handlePause}
               onBuffer={() => console.log('onBuffer')}
               onPlaybackRateChange={handleOnPlaybackRateChange}
@@ -165,12 +117,8 @@ const Player = ({ lesson, lessonEnded }) => {
 
             <div className='media-controls'>
                 <section>
-                  <button onClick={handlePlayPause}>{playing ? 'Pause' : 'Play'}</button>
-                  {/* <button onClick={handleClickFullscreen}>Fullscreen</button> */}
-                  {light &&
-                    <button onClick={() => playerRef.current.showPreview()}>Show preview</button>}
-                  {ReactPlayer.canEnablePIP(url) &&
-                    <button onClick={handleTogglePIP}>{pip ? 'Disable PiP' : 'Enable PiP'}</button>}
+                  <button onClick={handlePlayPause}><FontAwesomeIcon icon={playing ? faPause : faPlay}/></button>
+                  {light && <button onClick={() => playerRef.current.showPreview()}>Show preview</button>}
                 </section>
                 <section className="duration-section">
                   <section className="time-section">
@@ -182,7 +130,6 @@ const Player = ({ lesson, lessonEnded }) => {
                     <input
                       type='range' min={0} max={0.999999} step='any'
                       value={played}
-                      onMouseDown={handleSeekMouseDown}
                       onChange={handleSeekChange}
                       onMouseUp={handleSeekMouseUp}
                     />
@@ -192,6 +139,7 @@ const Player = ({ lesson, lessonEnded }) => {
                   </section>
                 </section>
                 <section className="volumne-section">
+                  <button onClick={handleToggleMuted}><FontAwesomeIcon icon={muted ? faVolumeMute : faVolumeUp}/></button>
                   <input type='range' min={0} max={1} step='any' value={volume} onChange={handleVolumeChange} />
                   <p className='app-name'>{parseInt(volume*100)}%</p>
                 </section>
@@ -199,49 +147,7 @@ const Player = ({ lesson, lessonEnded }) => {
                   <button className={playbackRate === 1 ? `activePlayback` : ''} onClick={handleSetPlaybackRate} value={1}>1x</button>
                   <button className={playbackRate === 1.5 ? `activePlayback` : ''} onClick={handleSetPlaybackRate} value={1.5}>1.5x</button>
                   <button className={playbackRate === 2 ? `activePlayback` : ''} onClick={handleSetPlaybackRate} value={2}>2x</button>
-                </section>
-              
-              {/* <tr>
-                <th>
-                  <label htmlFor='controls'>Controls</label>
-                </th>
-                <td>
-                  <input id='controls' type='checkbox' checked={controls} onChange={handleToggleControls} />
-                  <em>&nbsp; Requires player reload</em>
-                </td>
-              </tr> */}
-              {/* <tr>
-                <th>
-                  <label htmlFor='muted'>Muted</label>
-                </th>
-                <td>
-                  <input id='muted' type='checkbox' checked={muted} onChange={handleToggleMuted} />
-                </td>
-              </tr> */}
-              {/* <tr>
-                <th>
-                  <label htmlFor='loop'>Loop</label>
-                </th>
-                <td>
-                  <input id='loop' type='checkbox' checked={loop} onChange={handleToggleLoop} />
-                </td>
-              </tr> */}
-              {/* <tr>
-                <th>
-                  <label htmlFor='light'>Light mode</label>
-                </th>
-                <td>
-                  <input id='light' type='checkbox' checked={light} onChange={handleToggleLight} />
-                </td>
-              </tr> */}
-              {/* <tr>
-                <th>Played</th>
-                <td><progress max={1} value={played} />{played.toFixed(3)}</td>
-              </tr> */}
-              {/* <tr>
-                <th>Loaded</th>
-                <td><progress max={1} value={loaded} />{loaded.toFixed(3)}</td>
-              </tr> */}
+                </section> 
             </div>
         </section>
       </div>
