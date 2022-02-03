@@ -1,105 +1,119 @@
 [
     {
-        "title": "card trick",
+        "skill_name": "card trick",
         "skill_id": "card_trick",
-        "creator": "MLT Magic Tricks",
+        "thumb": "",
         "lessons": [
             {
-                "title": "True Coincidence",
-                "url": "https://www.youtube.com/watch?v=8-2LzMxvjUM",
-                "thumb": "",
+                "lesson_title": "True Coincidence",
+                "lesson_url": "https://www.youtube.com/watch?v=8-2LzMxvjUM",
+                "lesson_thumb": "",
+                "creator": "MLT Magic Tricks",
                 "skill_id": "card_trick" 
             },
             {
-                "title": "Indicator",
-                "url": "https://www.youtube.com/watch?v=RRcpL7tQHvk",
-                "thumb": "",
+                "lesson_title": "Indicator",
+                "lesson_url": "https://www.youtube.com/watch?v=RRcpL7tQHvk",
+                "lesson_thumb": "",
+                "creator": "MLT Magic Tricks",
                 "skill_id": "card_trick" 
             },
             {
-                "title": "Spectators dead",
+                "lesson_title": "Spectators dead",
                 "url": "https://www.youtube.com/watch?v=3tjaoveeTEQ",
                 "thumb": "",
+                "creator": "MLT Magic Tricks",
                 "skill_id": "card_trick" 
             },
             {
-                "title": "Name Any Card",
-                "url": "https://www.youtube.com/watch?v=Ixj_T3FLrUI",
-                "thumb": "",
+                "lesson_title": "Name Any Card",
+                "lesson_url": "https://www.youtube.com/watch?v=Ixj_T3FLrUI",
+                "lesson_thumb": "",
+                "creator": "MLT Magic Tricks",
                 "skill_id": "card_trick" 
             },
             {
-                "title": "12 card magic",
-                "url": "https://www.youtube.com/watch?v=P9X1s_ia9Ik",
-                "thumb": "",
+                "lesson_title": "12 card magic",
+                "lesson_url": "https://www.youtube.com/watch?v=P9X1s_ia9Ik",
+                "lesson_thumb": "",
+                "creator": "MLT Magic Tricks",
                 "skill_id": "card_trick" 
             }
         ]
     },
     {
-        "title": "solve rubik's cube",
+        "skill_name": "solve rubik's cube",
         "skill_id": "rubik_cube",
-        "creator": "J Perm",
+        "thumb": "",
         "lessons": [
             {
-                "title": "2x2 Cube",
-                "url": "https://www.youtube.com/watch?v=GANnG5a19kg",
-                "thumb": "",
+                "lesson_title": "2x2 Cube",
+                "lesson_url": "https://www.youtube.com/watch?v=GANnG5a19kg",
+                "lesson_thumb": "",
+                "creator": "J Prem",
+                "lesson_skill_id": "rubik_cube" 
+            },
+            {
+                "lesson_title": "3x3 Cube",
+                "lesson_url": "https://www.youtube.com/watch?v=KGvQRaK1mvs",
+                "lesson_thumb": "",
+                "creator": "J Prem",
+                "lesson_skill_id": "rubik_cube" 
+            },
+            {
+                "lesson_title": "4x4 Cube",
+                "lesson_url": "https://www.youtube.com/watch?v=f9ilC-ePrg4",
+                "lesson_thumb": "",
+                "creator": "J Prem",
                 "skill_id": "rubik_cube" 
             },
             {
-                "title": "3x3 Cube",
-                "url": "https://www.youtube.com/watch?v=KGvQRaK1mvs",
-                "thumb": "",
-                "skill_id": "rubik_cube" 
-            },
-            {
-                "title": "4x4 Cube",
-                "url": "https://www.youtube.com/watch?v=f9ilC-ePrg4",
-                "thumb": "",
-                "skill_id": "rubik_cube" 
-            },
-            {
-                "title": "CFOP Speedcubing Method",
-                "url": "https://www.youtube.com/watch?v=MS5jByTX_pk",
-                "thumb": "",
+                "lesson_title": "CFOP Speedcubing Method",
+                "lesson_url": "https://www.youtube.com/watch?v=MS5jByTX_pk",
+                "lesson_thumb": "",
+                "creator": "J Prem",
                 "skill_id": "rubik_cube" 
             }
         ]
     },
     {
-        "title": "soccer freestyle skills",
+        "skill_name": "soccer freestyle skills",
         "skill_id": "soccer_freestyle",
-        "creator": "Street Soccer International",
+        "thumb": "",
         "lessons": [
             {
-                "title": "5 Essential Receiving Skills",
-                "url": "https://www.youtube.com/watch?v=Hgtq1gepBdE",
-                "thumb": "",
+                "lesson_title": "5 Essential Receiving Skills",
+                "lesson_url": "https://www.youtube.com/watch?v=Hgtq1gepBdE",
+                "lesson_thumb": "",
+                "creator": "Street Soccer International",
                 "skill_id": "soccer_freestyle" 
             },
             {
-                "title": "5 Simple Nutmeg Skills",
-                "url": "https://www.youtube.com/watch?v=yBYx2r3dDxA",
-                "thumb": "",
+                "lesson_title": "5 Simple Nutmeg Skills",
+                "lesson_url": "https://www.youtube.com/watch?v=yBYx2r3dDxA",
+                "lesson_thumb": "",
+                "creator": "Street Soccer International",
                 "skill_id": "soccer_freestyle" 
             },
             {
-                "title": "6 Ways To Control The Ball ",
-                "url": "https://www.youtube.com/watch?v=YWNdqAOx59g",
-                "thumb": "",
+                "lesson_title": "6 Ways To Control The Ball ",
+                "lesson_url": "https://www.youtube.com/watch?v=YWNdqAOx59g",
+                "lesson_thumb": "",
+                "creator": "Street Soccer International",
                 "skill_id": "soccer_freestyle" 
             },
             {
-                "title": "Rabona and Rabona Fake",
-                "url": "https://www.youtube.com/watch?v=Zt-imRuYpfg",
-                "thumb": "",
+                "lesson_title": "Rabona and Rabona Fake",
+                "lesson_url": "https://www.youtube.com/watch?v=Zt-imRuYpfg",
+                "lesson_thumb": "",
+                "creator": "Street Soccer International",
                 "skill_id": "soccer_freestyle" 
             },
             {
-                "title": "Scissor Move",
-                "url": "https://www.youtube.com/watch?v=UAP1C_urdwk",
-                "thumb": "",
+                "lesson_title": "Scissor Move",
+                "lesson_url": "https://www.youtube.com/watch?v=UAP1C_urdwk",
+                "lesson_thumb": "",
+                "creator": "Street Soccer International",
                 "skill_id": "soccer_freestyle" 
             }
         ]

@@ -36,22 +36,22 @@ const SkillCard = ({ skill, type }) => {
         </div> */}
         </div>
         <div className="project-box-content-header">
-            <p className="box-content-header">{skill.title.toUpperCase()}</p>
-            <p className="box-content-subheader">{skill.creator}</p>
+            <p className="box-content-header">{skill.skill_name.toUpperCase()}</p>
+            <p className="box-content-subheader">{}</p>
         </div>
         {type === 'my' && <div className="box-progress-wrapper">
             <p className="box-progress-header">Progress</p>
             <div className="box-progress-bar">
-                <span className="box-progress" style={{ width: `${skill.progress}%`, backgroundColor: '#6ba644'}}></span>
+                <span className="box-progress" style={{ width: `${(skill.completed_lessons.length / skill.all_lessons.length)*100}%`, backgroundColor: '#6ba644'}}></span>
             </div>
         </div>}
         <div className="project-box-footer">
             <div className="participants">
                 <button className="days-left">
                     {type === 'my' ? 
-                        `${skill.progress} %`
+                        `${Math.round((skill.completed_lessons.length / skill.all_lessons.length)*100)} %`
                         :
-                        skill.progress.length > 0 ? 
+                        skill.progress.length > 0 && skill.progress[0] ? 
                             `+${skill.progress.length} Learner`
                             :
                             'Be the first learner'}

@@ -81,9 +81,9 @@ const Home = () => {
                     <br /><br />
                 </> : myskillsList ? <></> : <Loader/>}
                 {skillsList ? <>
-                    <div class="projects-section-header">
+                    {skillsList.length > 0 && <div class="projects-section-header">
                         <p>All Skills</p>
-                    </div>
+                    </div>}
                     <div class="project-boxes jsGridView">
                         {skillsList.map(skill => <SkillCard type='all' skill={skill} />)}
                     </div>
