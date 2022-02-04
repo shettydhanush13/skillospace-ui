@@ -19,11 +19,11 @@ const Learn = () => {
     useEffect(() => {
         id && getSkillById(id)
         .then(res => {
-            const item = res.items[0];
+            const item = res.items;
             setSkillData(item)
-            setLesson(item.lessons)
-            setLessonProgress(JSON.parse(item.progress.lessons))
-            setActiveLesson(item.lessons[0])
+            setLesson(item.json_build_object.all_lessons)
+            setLessonProgress(item.json_build_object.completed_lessons)
+            setActiveLesson(item.json_build_object.all_lessons[0])
         }).catch(err => console.log(err))
     }, [id])
   
@@ -32,22 +32,22 @@ const Learn = () => {
     }, [location])
 
     const lessonEnded = () => {
-        const currentProgress = [...lessonProgress];
-        currentProgress.push(activeLesson.id);
-        setLessonProgress(currentProgress);
-        const progress = (currentProgress.length/lesson.length)*100
-        const body = {
-            progress: JSON.stringify(progress),
-            lessons: JSON.stringify(currentProgress)
-        }
-        updateProgress(body, skillData.progress.id)
-        .then(res => {
-           console.log(res)
-        }).catch(err => console.log(err))
+        // const currentProgress = [...lessonProgress];
+        // currentProgress.push(activeLesson.id);
+        // setLessonProgress(currentProgress);
+        // const progress = (currentProgress.length/lesson.length)*100
+        // const body = {
+        //     progress: JSON.stringify(progress),
+        //     lessons: JSON.stringify(currentProgress)
+        // }
+        // updateProgress(body, skillData.progress.id)
+        // .then(res => {
+        //    console.log(res)
+        // }).catch(err => console.log(err))
     }
     
     return <PageWrapper className='relative flex flex-column'>
-        {skillData && <h1 className='app-name' style={{ textTransform: 'uppercase' }}><b>{skillData?.title}</b> - {skillData?.creator}</h1>}
+        {skillData && <h1 className='app-name' style={{ textTransform: 'uppercase' }}><b>{skillData?.skill_name}</b> - {activeLesson?.creator}</h1>}
         <br />
         {activeLesson ? <div className='videoContainer'><Player lesson={activeLesson} lessonEnded={lessonEnded}/></div>
         : 

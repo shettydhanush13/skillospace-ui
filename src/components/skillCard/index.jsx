@@ -40,7 +40,7 @@ const SkillCard = ({ skill, type }) => {
             <p className="box-content-subheader">{}</p>
         </div>
         {type === 'my' && <div className="box-progress-wrapper">
-            <p className="box-progress-header">Progress</p>
+            <p className="box-progress-header flex" style={{ justifyContent: 'space-between'}}><span>Progress</span><span>{`${Math.round((skill.completed_lessons.length / skill.all_lessons.length)*100)} %`}</span></p>
             <div className="box-progress-bar">
                 <span className="box-progress" style={{ width: `${(skill.completed_lessons.length / skill.all_lessons.length)*100}%`, backgroundColor: '#6ba644'}}></span>
             </div>
@@ -49,7 +49,7 @@ const SkillCard = ({ skill, type }) => {
             <div className="participants">
                 <button className="days-left">
                     {type === 'my' ? 
-                        `${Math.round((skill.completed_lessons.length / skill.all_lessons.length)*100)} %`
+                        `${skill.completed_lessons.length} / ${skill.all_lessons.length}`
                         :
                         skill.progress.length > 0 && skill.progress[0] ? 
                             `+${skill.progress.length} Learner`

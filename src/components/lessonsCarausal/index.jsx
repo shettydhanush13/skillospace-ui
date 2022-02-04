@@ -9,7 +9,7 @@ const LessonsCarausal = ({ active, lessons, setLesson, lessonProgress }) => {
     for(let i=0; i<cards.length; i++) {
       cards[i].classList.remove('current-lesson');
     }
-    document.getElementById(lesson.id).classList.add('current-lesson');
+    document.getElementById(lesson.lesson_id).classList.add('current-lesson');
     setLesson(lesson);
   }
 
@@ -19,10 +19,10 @@ const LessonsCarausal = ({ active, lessons, setLesson, lessonProgress }) => {
 
   return <div className='flex flex-wrap'>
       {lessons.map(lesson =>  <div onClick={() => activeLessonChange(lesson)}
-        id={lesson.id}
+        id={lesson.lesson_id}
         className={`flex flex-column flex-align-center project-box lessonCard`}>
-          {lessonProgress.includes(lesson.id) && <FontAwesomeIcon className='completed-icon' icon={faCheckCircle}/>}
-          <span className='text-center'>{lesson.title}</span>
+          {lessonProgress.includes(lesson.lesson_id) && <FontAwesomeIcon className='completed-icon' icon={faCheckCircle}/>}
+          <span className='text-center'>{lesson.lesson_title}</span>
       </div>)}
   </div>
 }
