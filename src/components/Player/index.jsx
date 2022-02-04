@@ -20,7 +20,7 @@ const Player = ({ lesson, lessonEnded }) => {
   const [playbackRate, setPlaybackRate] = useState(1.0)
 
   const load = () => {
-    setUrl(lesson.url)
+    setUrl(lesson.lesson_url)
     setPlayed(0)
   }
 
