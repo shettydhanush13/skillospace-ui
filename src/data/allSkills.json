@@ -51,14 +51,14 @@
                 "lesson_url": "https://www.youtube.com/watch?v=GANnG5a19kg",
                 "lesson_thumb": "",
                 "creator": "J Prem",
-                "lesson_skill_id": "rubik_cube" 
+                "skill_id": "rubik_cube" 
             },
             {
                 "lesson_title": "3x3 Cube",
                 "lesson_url": "https://www.youtube.com/watch?v=KGvQRaK1mvs",
                 "lesson_thumb": "",
                 "creator": "J Prem",
-                "lesson_skill_id": "rubik_cube" 
+                "skill_id": "rubik_cube" 
             },
             {
                 "lesson_title": "4x4 Cube",
