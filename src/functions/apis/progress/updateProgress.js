@@ -1,10 +1,10 @@
 import axios from "axios";
 import config from "../../../config"
 
-export const updateProgress = (body, progressId) => {
+export const updateProgress = (body) => {
     const token = localStorage.getItem('accessToken')
     return new Promise((resolve, reject) => {
-        axios.put(`${config.baseUrl}/progress/${progressId}`, body, {
+        axios.post(`${config.baseUrl}/progress_lesson`, body, {
             headers: {
               'Authorization': `Bearer ${token}`
             }

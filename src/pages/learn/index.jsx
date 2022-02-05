@@ -32,18 +32,18 @@ const Learn = () => {
     }, [location])
 
     const lessonEnded = () => {
-        // const currentProgress = [...lessonProgress];
-        // currentProgress.push(activeLesson.id);
-        // setLessonProgress(currentProgress);
-        // const progress = (currentProgress.length/lesson.length)*100
-        // const body = {
-        //     progress: JSON.stringify(progress),
-        //     lessons: JSON.stringify(currentProgress)
-        // }
-        // updateProgress(body, skillData.progress.id)
-        // .then(res => {
-        //    console.log(res)
-        // }).catch(err => console.log(err))
+        if(lessonProgress.includes(activeLesson.lesson_id)) return;
+        const currentProgress = [...lessonProgress];
+        currentProgress.push(activeLesson.lesson_id);
+        setLessonProgress(currentProgress);
+        const body = {
+            progress_id: skillData.progress_id,
+            lesson_id: activeLesson.lesson_id
+        }
+        updateProgress(body)
+        .then(res => {
+           console.log(res)
+        }).catch(err => console.log(err))
     }
     
     return <PageWrapper className='relative flex flex-column'>

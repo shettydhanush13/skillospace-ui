@@ -11,9 +11,7 @@ const SkillCard = ({ skill, type }) => {
     const learn = () => {
         if(type === 'all') {
             const body = {
-                progress: '1',
-                skill_id: skill.skill_id,
-                lessons: '[]',
+                skill_id: skill.skill_id
             }
             createProgress(body)
             .then(() => navigateToLearn())
